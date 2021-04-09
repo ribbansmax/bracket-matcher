@@ -14,5 +14,3 @@ def bracket(string)
   end
   s.length == 0
 end
-
-require 'pry';binding.pry
