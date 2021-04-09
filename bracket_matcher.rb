@@ -1,11 +1,14 @@
 def bracket(string)
-  open_brackets = ['[', '{', '(']
-  closed_brackets = [']', '}', ')']
+  brackets = {
+    '[' => ']',
+    '{' => '}',
+    '(' => ')'
+  }
   s = ''
   string.split('').each do |char|
-    if open_brackets.include?(char)
+    if brackets[char]
       s << char
-    elsif closed_brackets.include?(char) and open_brackets[closed_brackets.index(char)] == s[-1]
+    elsif brackets.invert[char] == s[-1]
       s.slice!(-1)
     end
   end
